@@ -2,59 +2,9 @@ import pygame, math, random, sys, re
 from pygame.locals import *
 from settings import *
 from classes import *
-pygame.init()
 
 class Game:
     def __init__(self):
-            # Reading the file
-        file = open("Chapter_1_Script.txt", "r")
-        count = 1
-        message = file.readlines()
-        option1 = []
-        option2 = []
-        option3 = []
-        dialog = []
-        transition = []
-        option1path = []
-        option2path = []
-        option3path = []
-        a = 0
-        temp = 0
-        while message[a] != "END\n":
-              temp = message[a]
-              dialog.append(temp[4:])
-              a=a+1
-        a = a+1
- 
-        for x in range (0,len(dialog)):
-              a = a+1
-              option1.append(message[a])
-              a = a+1
-              option2.append(message[a])
-              a = a+1
-              option3.append(message[a])
-              a = a+1
-
-        for x in option1:
-              temp2 = re.findall(r'\d+',x)
-              if(len(temp2) == 0):
-                   option1path.append(-1)
-              else:
-                   option1path.append((temp2[0]))
-
-        for x in option2:
-              temp2 = re.findall(r'\d+',x)
-              if(len(temp2) == 0):
-                   option2path.append(-1)
-              else:
-                   option2path.append((temp2[0]))
-
-        for x in option3:
-              temp2 = re.findall(r'\d+',x)
-              if(len(temp2) == 0):
-                   option3path.append(-1)
-              else:
-                   option3path.append((temp2[0]))
         # initialize game window, etc
         pygame.init()
         pygame.mixer.init()
@@ -66,16 +16,18 @@ class Game:
 
         self.scenes = [Scene(exbg),Scene(exbg2)]
         self.current_scene = self.scenes[0]
-        a = 0
-        for x in dialog:
-                self.current_scene.add_dialogue(Dialogue(x[:-1],[Response(option1[a][:-4],(int)(option1path[a])),Response(option2[a][:-4],(int)(option2path[a])),Response(option3[a][:-4],(int)(option3path[a]))    ],exchar))
-                a = a+1
-                                                
-       # self.current_scene.add_dialogue(Dialogue("Dialogue 0",[Response("z",1),Response("z",1),Response("z",1)],exchar))
-       # self.current_scene.add_dialogue(Dialogue("RANDOM GIRL: Hi! I haven't seen you around ... nice to meet you!",[Response("Likewise! What's your name?",2),Response("Ew, get away from me",3),Response("Gtfo cuz u know u a thot",1,scene_change=True)],exchar))
-       # self.current_scene.add_dialogue(Dialogue("Dialogue 2",[Response("3",3),Response("4",4),Response("1",1)],exchar))
-       # self.current_scene.add_dialogue(Dialogue("Dialogue 3",[Response("4",4),Response("1",1),Response("2",2)],exchar))
-       # self.current_scene.add_dialogue(Dialogue("Dialogue 4",[Response("1",1),Response("2",2),Response("3",3)],exchar))
+        
+        # Reading the file
+        file = open("../resources/script/Chapter_1_Script.txt", "r")
+        script = file.readlines()
+        for i in range(0,len(script),5):
+        	dial_text = script[i][:-2]
+
+        	r1 = Response(script[i+1][:script[i+1].index('(')], int(script[i+1][script[i+1].index('(')+1:script[i+1].index(')')]),scene_change=(')s' in script[i+1]))
+        	r2 = Response(script[i+2][:script[i+2].index('(')], int(script[i+2][script[i+2].index('(')+1:script[i+2].index(')')]),scene_change=(')s' in script[i+2]))
+        	r3 = Response(script[i+3][:script[i+3].index('(')], int(script[i+3][script[i+3].index('(')+1:script[i+3].index(')')]),scene_change=(')s' in script[i+3]))
+
+        	self.current_scene.add_dialogue(Dialogue(dial_text,[r1,r2,r3],exchar))
 
         self.next_scene = None
 
@@ -165,20 +117,20 @@ class Game:
                             if my > 510 and my < 660:
                                 if my > 510 and my < 560:
                                     if self.current_scene.current_dialogue.responses[0].scene_change:
-                                        self.next_scene = self.scenes[self.current_scene.current_dialogue.responses[0].target_id]
+                                        self.next_scene = self.scenes[self.current_scene.current_dialogue.responses[0].target_id-1]
                                         self.fade_out()
                                     else:
                                         self.current_scene.input(1)
                                 elif my > 560 and my < 610:
                                     if self.current_scene.current_dialogue.responses[1].scene_change:
                                         self.fade_out()
-                                        self.next_scene = self.scenes[self.current_scene.current_dialogue.responses[1].target_id]
+                                        self.next_scene = self.scenes[self.current_scene.current_dialogue.responses[1].target_id-1]
                                     else:
                                         self.current_scene.input(2)
                                 elif my > 610 and my < 660:
                                     if self.current_scene.current_dialogue.responses[2].scene_change:
                                         self.fade_out()
-                                        self.next_scene = self.scenes[self.current_scene.current_dialogue.responses[2].target_id]
+                                        self.next_scene = self.scenes[self.current_scene.current_dialogue.responses[2].target_id-1]
                                     else:
                                         self.current_scene.input(3)
                                 self.text_anim = True
@@ -256,4 +208,3 @@ if (__name__ == "__main__"):
     #g.read()
     #g.load()
     g.run()
-
