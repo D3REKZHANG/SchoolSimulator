@@ -1,0 +1,72 @@
+HE: Oh, hi! My name is HE, what's your name?
+HE: I'm good, how are you?
+HE: Oh, sorry for annoying you... 1
+HE: Um, what?
+HE: Oh, that's good. Hey, I heard that this school has a lot of clubs. Are you going to join any?
+HE: ...
+HE: Creep... 2
+HE: Yeah, me too. There are so many clubs, I can't decide... Oh wait! There's Club Crawl today!
+HE: Oh...ok. Well, class is starting, so I guess I'll see you around. 3
+HE: Oh, are you?
+HE: Yeah! Hey, um...________, do you wanna go with me?
+HE: Well, I'm part of the FBI. You're under arrest! 4
+HE: Ah, I see. Well, uh, class is going to start, so uh, bye. 5
+HE: Great! I'll see you at lunch then! 6
+END
+- Hi HE! My name is _______. How are you? (1)
+- Shut up... (2)
+- You're an alien, aren't you? (3)
+
+- I'm good. (4)
+- Don't try to be a part of my life. Go away. (2)
+- Much better now that I'm with you. (5)
+
+-
+-
+-
+
+- Heh, just joking. How are you? (1)
+- Aliens like you don't belong here. (2)
+- Don't worry, your secret's safe with me. (6)
+
+- Yeah but I don't know which one yet. (7)
+- No, I don't think I will (8)
+- 
+
+- You see, I'm an alien too. (9)
+- *wink* I'm good at that. (5)
+- 
+
+- Oh yeah that's right! We can pick what club we want to join then! (10)
+- I don't really want to go... (8)
+- 
+
+-
+-
+-
+
+-
+-
+-
+
+- Absolutely (11)
+- Well... (12)
+- 
+
+MC: (Pick one)
+- For sure! (13)
+- Ah, sorry, but no. (8)
+- 
+
+-
+-
+-
+
+-
+-
+-
+
+-
+-
+-
+
