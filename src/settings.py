@@ -1,4 +1,4 @@
-import pygame
+import pygame,sys
 
 pygame.init()
 
@@ -8,10 +8,12 @@ TITLE = "Dating Sim"
 FPS = 60
 
 TEXT_SCROLL_SPEED = 0.005 # in seconds
+FADE_SPEED = 0.0001
 
 # Image Loading
 path = "../resources/images/"
 exbg = pygame.image.load("{}example_bg.jpg".format(path))
+exbg2 = pygame.image.load("{}example_bg2.jpg".format(path))
 exchar = pygame.image.load("{}example_char.png".format(path))
 
 # Font Definitions
@@ -32,3 +34,14 @@ def find_space_backwards(string, index):
 	for i in range(index,0,-1):
 		if string[i] == ' ':
 			return i
+
+def check_break():
+	for event in pygame.event.get():
+		# check for closing window
+		if event.type == pygame.QUIT:
+			pygame.quit()
+			sys.exit()
+		if event.type == pygame.KEYDOWN:
+			if event.key == pygame.K_SPACE:
+				return True
+	return False

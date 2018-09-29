@@ -16,16 +16,24 @@ class Game:
 		self.window = pygame.display.set_mode((WIDTH,HEIGHT))
 		self.clock = pygame.time.Clock()
 
-		self.current_scene = Scene(exbg)
-		self.current_scene.add_dialogue(Dialogue("D0",[Response("z",1),Response("z",1),Response("z",1)],exchar))
-		self.current_scene.add_dialogue(Dialogue("RANDOM GIRL: Hi! I haven't seen you around ... nice to meet you!",[Response("Likewise! What's your name?",2),Response("Ew, get away from me",3),Response("Gtfo cuz u know u a thot",4)],exchar))
-		self.current_scene.add_dialogue(Dialogue("D2",[Response("3",3),Response("4",4),Response("1",1)],exchar))
-		self.current_scene.add_dialogue(Dialogue("D3",[Response("4",4),Response("1",1),Response("2",2)],exchar))
-		self.current_scene.add_dialogue(Dialogue("D4",[Response("1",1),Response("2",2),Response("3",3)],exchar))
+		self.scenes = [Scene(exbg),Scene(exbg2)]
+		self.current_scene = self.scenes[0]
+		self.current_scene.add_dialogue(Dialogue("Dialogue 0",[Response("z",1),Response("z",1),Response("z",1)],exchar))
+		self.current_scene.add_dialogue(Dialogue("RANDOM GIRL: Hi! I haven't seen you around ... nice to meet you!",[Response("Likewise! What's your name?",2),Response("Ew, get away from me",3),Response("Gtfo cuz u know u a thot",1,scene_change=True)],exchar))
+		self.current_scene.add_dialogue(Dialogue("Dialogue 2",[Response("3",3),Response("4",4),Response("1",1)],exchar))
+		self.current_scene.add_dialogue(Dialogue("Dialogue 3",[Response("4",4),Response("1",1),Response("2",2)],exchar))
+		self.current_scene.add_dialogue(Dialogue("Dialogue 4",[Response("1",1),Response("2",2),Response("3",3)],exchar))
+
+		self.next_scene = None
+
+		self.scenes[1].add_dialogue(Dialogue("SCENE 2",[Response("ree",3),Response("ree",4),Response("ree",1)],exchar))
 
 		self.game_state = "splash"
 
 		self.text_anim = True
+		self.fader = pygame.Surface((WIDTH,HEIGHT));self.fader.fill(BLACK)
+		self.fading = False
+		self.fade_alpha = 0
 
 	def run(self):
 		# Game Loop
@@ -35,9 +43,8 @@ class Game:
 					# check for closing window
 					if event.type == pygame.QUIT:
 						self.close()
-					if event.type == pygame.KEYDOWN:
-						if event.key == pygame.K_SPACE:
-							self.game_state = "speaking"
+					if event.type == pygame.KEYDOWN or event.type == pygame.MOUSEBUTTONUP:
+						self.game_state = "speaking"
 
 				self.window.fill(BLACK)
 				self.text("S P L A S H S C R E E N", "Courier New",30,WHITE,0,0,align="center")
@@ -48,9 +55,8 @@ class Game:
 					# check for closing window
 					if event.type == pygame.QUIT:
 						self.close()
-					if event.type == pygame.KEYDOWN:
-						if event.key == pygame.K_SPACE:
-							self.game_state = "replying"
+					if event.type == pygame.KEYDOWN or event.type == pygame.MOUSEBUTTONUP:
+						self.game_state = "replying"
 
 				if self.game_state != "speaking":
 					break
@@ -63,23 +69,32 @@ class Game:
 				overlay = pygame.Surface((680,150));overlay.set_alpha(128);overlay.fill(BLACK)
 				self.window.blit(overlay,(200,510))
 
-				if self.text_anim:
-					self.current_scene.current_dialogue.play_text(self.window,self.current_scene.bg,overlay,210,520)
-					self.text_anim = False
-				else:
-					tt = self.current_scene.current_dialogue.t
-					text_font = pygame.font.SysFont("arial", 25)
-					message = text_font.render(tt, True, WHITE)
-
-					if message.get_width() > WIDTH-410:
-						#split the message into sections 
-						index = int(len(tt)*(WIDTH-410)/(message.get_width()))
-						t1 = tt[:find_space_backwards(tt,index)]
-						t2 = tt[find_space_backwards(tt,index):]
-						self.text(t1,"arial",25,WHITE,210,520)
-						self.text(t2.strip(),"arial",25,WHITE,210,550)
+				if not self.fading:
+					if self.text_anim:
+						self.current_scene.current_dialogue.play_text(self.window,self.current_scene.bg,overlay,210,520)
+						self.text_anim = False
 					else:
-						self.text(tt,"arial",25,WHITE,210,520)
+						tt = self.current_scene.current_dialogue.t
+						text_font = pygame.font.SysFont("arial", 25)
+						message = text_font.render(tt, True, WHITE)
+
+						if message.get_width() > WIDTH-410:
+							#split the message into sections 
+							index = int(len(tt)*(WIDTH-410)/(message.get_width()))
+							t1 = tt[:find_space_backwards(tt,index)]
+							t2 = tt[find_space_backwards(tt,index):]
+							self.text(t1,"arial",25,WHITE,210,520)
+							self.text(t2.strip(),"arial",25,WHITE,210,550)
+						else:
+							self.text(tt,"arial",25,WHITE,210,520)
+
+				if self.fading:
+					if self.fade_alpha - 15 > 0:
+						self.fade_alpha -= 15
+					else:
+						self.fading = False
+					self.fader.set_alpha(self.fade_alpha)
+					self.window.blit(self.fader,(0,0))
 
 				pygame.display.update()
 				self.clock.tick(FPS)
@@ -94,14 +109,26 @@ class Game:
 						if mx >= 200 and mx <= WIDTH-200:
 							if my > 510 and my < 660:
 								if my > 510 and my < 560:
-									print(1)
-									self.current_scene.input(1)
+									if self.current_scene.current_dialogue.responses[0].scene_change:
+										self.next_scene = self.scenes[self.current_scene.current_dialogue.responses[0].target_id]
+										self.fade_out()
+									else:
+										self.current_scene.input(1)
 								elif my > 560 and my < 610:
-									self.current_scene.input(2)
+									if self.current_scene.current_dialogue.responses[1].scene_change:
+										self.fade_out()
+										self.next_scene = self.scenes[self.current_scene.current_dialogue.responses[1].target_id]
+									else:
+										self.current_scene.input(2)
 								elif my > 610 and my < 660:
-									self.current_scene.input(3)
+									if self.current_scene.current_dialogue.responses[2].scene_change:
+										self.fade_out()
+										self.next_scene = self.scenes[self.current_scene.current_dialogue.responses[2].target_id]
+									else:
+										self.current_scene.input(3)
 								self.text_anim = True
-								self.game_state = "speaking"
+								if not self.fading:
+									self.game_state = "speaking"
 
 				if self.game_state != "replying":
 					break
@@ -137,6 +164,15 @@ class Game:
 					
 					self.text(t, "arial", 25, WHITE, 210, 518+50*i)
 
+				if self.fading:
+					if self.fade_alpha + 15 < 255:
+						self.fade_alpha += 15
+					else:
+						self.game_state = "speaking"
+						self.current_scene = self.next_scene
+						break
+					self.fader.set_alpha(self.fade_alpha)
+					self.window.blit(self.fader,(0,0))
 
 				pygame.display.update()
 				self.clock.tick(FPS)
@@ -153,11 +189,15 @@ class Game:
 	    else:
 	    	self.window.blit(message, (x, y))
 
+	def fade_out(self):
+		self.fading = True
+
 	def close(self):
 		pygame.quit()
 		sys.exit()
 
 if (__name__ == "__main__"):
 	g = Game()
+	#g.load()
 	g.run()
 

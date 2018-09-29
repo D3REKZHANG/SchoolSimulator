@@ -29,7 +29,7 @@ class Dialogue:
 				t2 = self.t[find_space_backwards(self.t,index):].strip()
 
 			for i in range(len(t1)):
-				if self.check_break():
+				if check_break():
 					break
 				window.blit(bg,(0,0))
 				window.blit(overlay,(200,510))
@@ -38,7 +38,7 @@ class Dialogue:
 				time.sleep(TEXT_SCROLL_SPEED)
 				pygame.display.update()
 			for i in range(len(t2)):
-				if self.check_break():
+				if check_break():
 					break
 				window.blit(bg,(0,0))
 				window.blit(overlay,(200,510))
@@ -49,7 +49,7 @@ class Dialogue:
 				pygame.display.update()
 			if(message.get_width()/(WIDTH-400)>2):
 				for i in range(len(t3)):
-					if self.check_break():
+					if check_break():
 						break
 					window.blit(bg,(0,0))
 					window.blit(overlay,(200,510))
@@ -62,7 +62,7 @@ class Dialogue:
 					pygame.display.update()
 		else:
 			for i in range(len(self.t)):
-				if self.check_break():
+				if check_break():
 					break
 				window.blit(bg,(0,0))
 				window.blit(overlay,(200,510))
@@ -80,20 +80,11 @@ class Dialogue:
 		
 		window.blit(message, (x, y))
 
-	def check_break(self):
-		for event in pygame.event.get():
-			# check for closing window
-			if event.type == pygame.QUIT:
-				self.close()
-			if event.type == pygame.KEYDOWN:
-				if event.key == pygame.K_SPACE:
-					return True
-		return False
-
 class Response:
-	def __init__(self, text, target):
+	def __init__(self, text, target,scene_change = False):
 		self.text = text
 		self.target_id = target
+		self.scene_change = scene_change
 
 class Scene:
 	def __init__(self,bg):
