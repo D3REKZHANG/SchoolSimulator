@@ -1,0 +1,84 @@
+1
+(1)
+HE: Oh, hi! My name is HE, what's your name? 1
+Hi HE! My name is _______. How are you? (2)
+Shut up... (3)
+You're an alien, aren't you? (4)
+
+(2)
+HE: I'm good, how are you? 1
+I'm good. (5)
+Don't try to be a part of my life. Go away. (3)
+Much better now that I'm with you. (6)
+
+(3)
+HE: Oh, sorry for annoying you... 4
+EMPTY (-99)
+EMPTY (-99)
+[next scene] (4)s
+
+(4)
+HE: Um, what? 5
+Heh, just joking. How are you? (2)
+Aliens like you don't belong here. (3)
+Don't worry, your secret's safe with me. (7)
+
+(5)
+HE: Oh, that's good. Hey, I heard that this school has a lot of clubs. Are you going to join any? 1
+Yeah but I don't know which one yet. (8)
+No, I don't think I will (9)
+EMPTY (-99)
+
+(6)
+HE: Creep... 5
+EMPTY (-99)
+EMPTY (-99)
+[next scene] (3)s
+
+(7)
+HE: ... 5
+You see, I'm an alien too. (10)
+*wink* I'm good at that. (6)
+EMPTY (-99)
+
+(8)
+HE: Yeah, me too. There are so many clubs, I can't decide... Oh wait! There's Club Crawl today! 2
+Oh yeah that's right! We can pick what club we want to join then! (11)
+I don't really want to go... (9)
+EMPTY (-99)
+
+(9)
+HE: Oh...ok. Well, class is starting, so I guess I'll see you around. 1
+EMPTY (-99)
+EMPTY (-99)
+[next scene] (2)s
+
+(10)
+HE: Oh, are you? 3
+Absolutely (12)
+Well... (13)
+EMPTY (-99)
+
+(11)
+HE: Yeah! Hey, um...________, do you wanna go with me? 1
+For sure! (14)
+Ah, sorry, but no. (9)
+EMPTY (-99)
+
+(12)
+HE: Well, I'm part of the FBI. You're under arrest! 6
+END (-99)
+END (-99)
+END (-99)
+
+(13)
+HE: Ah, I see. Well, uh, class is going to start, so uh, bye. 5
+EMPTY (-99)
+EMPTY (-99)
+[next scene] (3)s
+
+(14)
+HE: Great! I'll see you at lunch then! 2
+EMPTY (-99)
+EMPTY (-99)
+[next scene] (1)s
