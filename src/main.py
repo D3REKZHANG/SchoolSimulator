@@ -14,20 +14,27 @@ class Game:
         self.window = pygame.display.set_mode((WIDTH,HEIGHT))
         self.clock = pygame.time.Clock()
 
-        self.scenes = [Scene(exbg),Scene(exbg2)]
+        self.scenes = [Scene(exbg),Scene(exbg2),Scene(exbg3)]
         self.current_scene = self.scenes[0]
         
         # Reading the file
-        file = open("../resources/script/Chapter_1_Script.txt", "r")
-        script = file.readlines()
-        for i in range(1,len(script),6):
-            dial_text = script[i][:-2]
+        path = '../resources/script/'
+        files = [
+            open("{}Script1.txt".format(path), "r"),
+            open("{}Script2.txt".format(path), "r"),
+            open("{}Script3.txt".format(path), "r")
+        ]
+        for file in files:
+            script = file.readlines()
+            self.scenes.append(Scene(BACKGROUNDS[int(script[0])-1]))
+            for i in range(2,len(script),6):
+                dial_text = script[i][:-2]
 
-            r1 = Response(script[i+1][:script[i+1].index(' (')], int(script[i+1][script[i+1].index('(')+1:script[i+1].index(')')]),scene_change=(')s' in script[i+1]))
-            r2 = Response(script[i+2][:script[i+2].index(' (')], int(script[i+2][script[i+2].index('(')+1:script[i+2].index(')')]),scene_change=(')s' in script[i+2]))
-            r3 = Response(script[i+3][:script[i+3].index(' (')], int(script[i+3][script[i+3].index('(')+1:script[i+3].index(')')]),scene_change=(')s' in script[i+3]))
+                r1 = Response(script[i+1][:script[i+1].index(' (')], int(script[i+1][script[i+1].index('(')+1:script[i+1].index(')')]),scene_change=(')s' in script[i+1]))
+                r2 = Response(script[i+2][:script[i+2].index(' (')], int(script[i+2][script[i+2].index('(')+1:script[i+2].index(')')]),scene_change=(')s' in script[i+2]))
+                r3 = Response(script[i+3][:script[i+3].index(' (')], int(script[i+3][script[i+3].index('(')+1:script[i+3].index(')')]),scene_change=(')s' in script[i+3]))
 
-            self.current_scene.add_dialogue(Dialogue(dial_text,[r1,r2,r3],exchar))
+                self.scenes[files.index(file)].add_dialogue(Dialogue(dial_text,[r1,r2,r3],exchar))
 
         self.next_scene = None
 

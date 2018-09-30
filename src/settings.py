@@ -14,6 +14,10 @@ FADE_SPEED = 0.0001
 path = "../resources/images/"
 exbg = pygame.image.load("{}example_bg.jpg".format(path))
 exbg2 = pygame.image.load("{}example_bg2.jpg".format(path))
+exbg3 = pygame.image.load("{}example_bg3.jpg".format(path))
+
+BACKGROUNDS = [exbg,exbg2,exbg3]
+
 exchar = pygame.image.load("{}example_char.png".format(path))
 
 # Font Definitions
