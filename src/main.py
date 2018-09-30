@@ -20,14 +20,14 @@ class Game:
         # Reading the file
         file = open("../resources/script/Chapter_1_Script.txt", "r")
         script = file.readlines()
-        for i in range(0,len(script),5):
-        	dial_text = script[i][:-2]
+        for i in range(1,len(script),6):
+            dial_text = script[i][:-2]
 
-        	r1 = Response(script[i+1][:script[i+1].index('(')], int(script[i+1][script[i+1].index('(')+1:script[i+1].index(')')]),scene_change=(')s' in script[i+1]))
-        	r2 = Response(script[i+2][:script[i+2].index('(')], int(script[i+2][script[i+2].index('(')+1:script[i+2].index(')')]),scene_change=(')s' in script[i+2]))
-        	r3 = Response(script[i+3][:script[i+3].index('(')], int(script[i+3][script[i+3].index('(')+1:script[i+3].index(')')]),scene_change=(')s' in script[i+3]))
+            r1 = Response(script[i+1][:script[i+1].index(' (')], int(script[i+1][script[i+1].index('(')+1:script[i+1].index(')')]),scene_change=(')s' in script[i+1]))
+            r2 = Response(script[i+2][:script[i+2].index(' (')], int(script[i+2][script[i+2].index('(')+1:script[i+2].index(')')]),scene_change=(')s' in script[i+2]))
+            r3 = Response(script[i+3][:script[i+3].index(' (')], int(script[i+3][script[i+3].index('(')+1:script[i+3].index(')')]),scene_change=(')s' in script[i+3]))
 
-        	self.current_scene.add_dialogue(Dialogue(dial_text,[r1,r2,r3],exchar))
+            self.current_scene.add_dialogue(Dialogue(dial_text,[r1,r2,r3],exchar))
 
         self.next_scene = None
 
@@ -54,7 +54,7 @@ class Game:
                         self.game_state = "speaking"
 
                 self.window.fill(BLACK)
-                self.text("S P L A S H S C R E E N", "Courier New",30,WHITE,0,0,align="center")
+                self.text("S P L A S H S C R E E N","Courier New",30,WHITE,0,0,align="center")
                 pygame.display.update()
 
             while self.game_state == "speaking":
@@ -63,7 +63,11 @@ class Game:
                     if event.type == pygame.QUIT:
                         self.close()
                     if event.type == pygame.KEYDOWN or event.type == pygame.MOUSEBUTTONUP:
-                        self.game_state = "replying"
+                        if self.current_scene.current_dialogue.responses[0].text == "END":
+                            self.fade_alpha = 0
+                            self.fade_out()
+                        else:
+                            self.game_state = "replying"
 
                 if self.game_state != "speaking":
                     break
@@ -96,10 +100,18 @@ class Game:
                             self.text(tt,"arial",25,WHITE,210,520)
 
                 if self.fading:
-                    if self.fade_alpha - 15 > 0:
-                        self.fade_alpha -= 15
+                    if self.current_scene.current_dialogue.responses[0].text == "END":
+                        if self.fade_alpha + 5 < 255:
+                            self.fade_alpha += 5
+                        else:
+                            self.fading = False
+                            self.game_state = "endscreen"
+                            break
                     else:
-                        self.fading = False
+                        if self.fade_alpha - 15 > 0:
+                            self.fade_alpha -= 15
+                        else:
+                            self.fading = False
                     self.fader.set_alpha(self.fade_alpha)
                     self.window.blit(self.fader,(0,0))
 
@@ -115,19 +127,19 @@ class Game:
                         # Check for button clicks
                         if mx >= 200 and mx <= WIDTH-200:
                             if my > 510 and my < 660:
-                                if my > 510 and my < 560:
+                                if my > 510 and my < 560 and self.current_scene.current_dialogue.responses[0].text != "EMPTY":
                                     if self.current_scene.current_dialogue.responses[0].scene_change:
                                         self.next_scene = self.scenes[self.current_scene.current_dialogue.responses[0].target_id-1]
                                         self.fade_out()
                                     else:
                                         self.current_scene.input(1)
-                                elif my > 560 and my < 610:
+                                elif my > 560 and my < 610 and self.current_scene.current_dialogue.responses[1].text != "EMPTY":
                                     if self.current_scene.current_dialogue.responses[1].scene_change:
                                         self.fade_out()
                                         self.next_scene = self.scenes[self.current_scene.current_dialogue.responses[1].target_id-1]
                                     else:
                                         self.current_scene.input(2)
-                                elif my > 610 and my < 660:
+                                elif my > 610 and my < 660 and self.current_scene.current_dialogue.responses[2].text != "EMPTY":
                                     if self.current_scene.current_dialogue.responses[2].scene_change:
                                         self.fade_out()
                                         self.next_scene = self.scenes[self.current_scene.current_dialogue.responses[2].target_id-1]
@@ -158,15 +170,15 @@ class Game:
 
                 # Selector Render
                 if mx >= 200 and mx <= WIDTH-200:
-                    if my > 510 and my < 560:
+                    if my > 510 and my < 560 and self.current_scene.current_dialogue.responses[0].text != "EMPTY":
                         self.window.blit(selector,(200,510))
-                    elif my > 560 and my < 610:
+                    elif my > 560 and my < 610 and self.current_scene.current_dialogue.responses[1].text != "EMPTY":
                         self.window.blit(selector,(200,560))
-                    elif my > 610 and my < 660:
+                    elif my > 610 and my < 660 and self.current_scene.current_dialogue.responses[2].text != "EMPTY":
                         self.window.blit(selector,(200,610))
 
                 # Actual Replies
-                for i in range(3): 
+                for i in range(2+int(self.current_scene.current_dialogue.responses[2].text != "EMPTY")): 
                     t = self.current_scene.current_dialogue.responses[i].text
                     
                     self.text(t, "arial", 25, WHITE, 210, 518+50*i)
@@ -184,17 +196,28 @@ class Game:
                 pygame.display.update()
                 self.clock.tick(FPS)
 
+            while self.game_state == "endscreen":
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        self.close()
+                    if event.type == pygame.KEYDOWN or event.type == pygame.MOUSEBUTTONUP:
+                        self.game_state = "splash"
+                print(2)
+                self.window.fill(BLACK)
+                
+                self.text("C R E D I T S", "Arial", 30, WHITE, 0,0,align="center")
+
     def text(self,text, font, size, color, x, y, align="free"):
-       font_style = str(font)
-       font_size = size
+        font_style = str(font)
+        font_size = size
 
-       text_font = pygame.font.SysFont(font_style, font_size)
+        text_font = pygame.font.SysFont(font_style, font_size)
 
-       message = text_font.render(text, True, color)
-       if(align == "center"):
-        self.window.blit(message, (WIDTH/2-message.get_width()//2, HEIGHT/2-message.get_height()//2))
-       else:
-        self.window.blit(message, (x, y))
+        message = text_font.render(text, True, color)
+        if(align == "center"):
+            self.window.blit(message, (WIDTH/2-message.get_width()//2, HEIGHT/2-message.get_height()//2))
+        else:
+            self.window.blit(message, (x, y))
 
     def fade_out(self):
         self.fading = True
