@@ -19,7 +19,7 @@ Download Pygame here: https://www.pygame.org/download.shtml
 
 Written completely in Python using Pygame, a game development module. Code is very short (less than 500 lines), clean and readable. Source code is seperated into three different files for more readability and a more organized design. The game presents slick transition animations, coded without the use of an animation module. 
 
-Programmed by Derek Zhang and Yi Deng (mostly Derek xd)<br>
+Programmed by Derek Zhang with assistance of Yi Deng
 All art is original and drawn digitally by Juleen Chen<br>
 Script written by Stephen Hwang and Khushwant Virdi<br>
 Project Directed by Stephen Hwang
