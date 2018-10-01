@@ -20,9 +20,9 @@ class Game:
         # Reading the file
         path = '../resources/script/'
         files = [
-            open("{}Script1.txt".format(path), "r"),
-            open("{}Script2.txt".format(path), "r"),
-            open("{}Script3.txt".format(path), "r")
+            open("{}Script_1.txt".format(path), "r"),
+            open("{}Script_2a.txt".format(path), "r"),
+            open("{}Script_3.txt".format(path), "r")
         ]
         for file in files:
             script = file.readlines()
@@ -61,7 +61,7 @@ class Game:
                         self.game_state = "speaking"
 
                 self.window.fill(BLACK)
-                self.text("S P L A S H S C R E E N","Courier New",30,WHITE,0,0,align="center")
+                self.text("S P L A S H S C R E E N","Courier New",30,WHITE,0,0,align="fullcenter")
                 pygame.display.update()
 
             while self.game_state == "speaking":
@@ -185,10 +185,12 @@ class Game:
                         self.window.blit(selector,(200,610))
 
                 # Actual Replies
-                for i in range(2+int(self.current_scene.current_dialogue.responses[2].text != "EMPTY")): 
+                for i in range(3): 
                     t = self.current_scene.current_dialogue.responses[i].text
-                    
-                    self.text(t, "arial", 25, WHITE, 210, 518+50*i)
+                    if not t == "EMPTY":
+                        self.text(t, "arial", 25, WHITE, 210, 518+50*i)
+                    if t == "[next scene]":
+                        self.text(t, "arial", 25, WHITE, -99, 518+50*i,align="center")
 
                 if self.fading:
                     if self.fade_alpha + 15 < 255:
@@ -212,7 +214,7 @@ class Game:
                 print(2)
                 self.window.fill(BLACK)
                 
-                self.text("C R E D I T S", "Arial", 30, WHITE, 0,0,align="center")
+                self.text("C R E D I T S", "Arial", 30, WHITE, 0,0,align="fullcenter")
 
     def text(self,text, font, size, color, x, y, align="free"):
         font_style = str(font)
@@ -222,6 +224,8 @@ class Game:
 
         message = text_font.render(text, True, color)
         if(align == "center"):
+            self.window.blit(message, (WIDTH/2-message.get_width()//2, y))
+        elif(align == "fullcenter"):
             self.window.blit(message, (WIDTH/2-message.get_width()//2, HEIGHT/2-message.get_height()//2))
         else:
             self.window.blit(message, (x, y))

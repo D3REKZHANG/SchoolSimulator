@@ -18,7 +18,7 @@ exbg3 = pygame.image.load("{}example_bg3.jpg".format(path))
 
 BACKGROUNDS = [exbg,exbg2,exbg3]
 
-exchar = pygame.image.load("{}example_char.png".format(path))
+exchar = pygame.image.load("{}talking.png".format(path))
 
 # Font Definitions
 comicsans50 = pygame.font.SysFont("comicsansms", 50)

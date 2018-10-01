@@ -32,8 +32,8 @@ class Dialogue:
 				if check_break():
 					break
 				window.blit(bg,(0,0))
-				window.blit(overlay,(200,510))
 				window.blit(self.image,(0,0))
+				window.blit(overlay,(200,510))
 				self.text(window, t1[:i],"arial", 25, WHITE, x, y)
 				time.sleep(TEXT_SCROLL_SPEED)
 				pygame.display.update()
@@ -41,8 +41,8 @@ class Dialogue:
 				if check_break():
 					break
 				window.blit(bg,(0,0))
-				window.blit(overlay,(200,510))
 				window.blit(self.image,(0,0))
+				window.blit(overlay,(200,510))
 				self.text(window, t1,"arial",25,WHITE,x,y)
 				self.text(window, t2[:i],"arial", 25, WHITE, x, y+30)
 				time.sleep(TEXT_SCROLL_SPEED)
@@ -52,8 +52,8 @@ class Dialogue:
 					if check_break():
 						break
 					window.blit(bg,(0,0))
-					window.blit(overlay,(200,510))
 					window.blit(self.image,(0,0))
+					window.blit(overlay,(200,510))
 					self.text(window, t1,"arial",25,WHITE,x,y)
 					self.text(window, t2,"arial", 25, WHITE, x, y+30)
 					self.text(window, t3[:i],"arial", 25, WHITE, x, y+60)
@@ -65,8 +65,8 @@ class Dialogue:
 				if check_break():
 					break
 				window.blit(bg,(0,0))
-				window.blit(overlay,(200,510))
 				window.blit(self.image,(0,0))
+				window.blit(overlay,(200,510))
 				self.text(window, self.t[:i],"arial", 25, WHITE, x, y)
 				time.sleep(TEXT_SCROLL_SPEED)
 				pygame.display.update()
@@ -101,4 +101,4 @@ class Scene:
 
 	def input(self, option):
 		''' option -> response 1, 2, or 3'''
-		self.current_dialogue = self.dialogues[self.current_dialogue.responses[option-1].target_id]
+		self.current_dialogue = self.dialogues[self.current_dialogue.responses[option-1].target_id-1]
