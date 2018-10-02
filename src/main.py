@@ -45,9 +45,12 @@ class Game:
         self.text_anim = True
         self.fader = pygame.Surface((WIDTH,HEIGHT));self.fader.fill(BLACK)
         self.fading = False
-        self.fade_alpha = 0
-                                
-           
+        self.fade_alpha = 0     
+
+        # Name Typing Shenanigans
+        self.temp_name = ""
+        self.inkey = None
+
     def run(self):
         
         # Game Loop
@@ -58,10 +61,39 @@ class Game:
                     if event.type == pygame.QUIT:
                         self.close()
                     if event.type == pygame.KEYDOWN or event.type == pygame.MOUSEBUTTONUP:
-                        self.game_state = "speaking"
+                        self.game_state = "name_select"
 
                 self.window.fill(BLACK)
                 self.text("S P L A S H S C R E E N","Courier New",30,WHITE,0,0,align="fullcenter")
+                pygame.display.update()
+
+            while self.game_state == "name_select":
+                for event in pygame.event.get():
+                    # check for closing window
+                    if event.type == pygame.QUIT:
+                        self.close()
+                    if event.type == pygame.KEYDOWN:
+                        self.inkey = event.key
+                        if event.key == K_RETURN and not self.temp_name.strip() == "":
+                            PLAYER_NAME = self.temp_name
+                            self.game_state = "speaking"
+
+                    if self.inkey != None:
+                        if self.inkey == K_BACKSPACE:
+                            self.temp_name = self.temp_name[:-1]
+                        elif self.inkey == K_ESCAPE:
+                            self.temp_name = ""
+                        elif self.inkey <= 122 and self.inkey >= 97 and len(self.temp_name) < 20:
+                            if pygame.key.get_mods() & pygame.KMOD_SHIFT:
+                                self.temp_name+=(chr(self.inkey-32))
+                            else:
+                                self.temp_name+=(chr(self.inkey))
+                        self.inkey = None
+
+                self.window.blit(OPENING_BG,(0,0))
+
+                self.text(self.temp_name,"Consolas",30,WHITE,404,360)
+
                 pygame.display.update()
 
             while self.game_state == "speaking":
@@ -89,7 +121,7 @@ class Game:
 
                 if not self.fading:
                     if self.text_anim:
-                        self.current_scene.current_dialogue.play_text(self.window,self.current_scene.bg,overlay,210,520)
+                        self.current_scene.current_dialogue.play_text(self.window,self.current_scene.bg,overlay,210,520,PLAYER_NAME)
                         self.text_anim = False
                     else:
                         tt = self.current_scene.current_dialogue.t
@@ -186,11 +218,12 @@ class Game:
 
                 # Actual Replies
                 for i in range(3): 
-                    t = self.current_scene.current_dialogue.responses[i].text
-                    if not t == "EMPTY":
-                        self.text(t, "arial", 25, WHITE, 210, 518+50*i)
+                    t = self.current_scene.current_dialogue.responses[i].text.replace("PLAYERNAME",PLAYER_NAME)
                     if t == "[next scene]":
                         self.text(t, "arial", 25, WHITE, -99, 518+50*i,align="center")
+                    elif not t == "EMPTY":
+                        self.text(t, "arial", 25, WHITE, 210, 518+50*i)
+                    
 
                 if self.fading:
                     if self.fade_alpha + 15 < 255:

@@ -12,10 +12,10 @@ class Dialogue:
 		self.responses = responses
 		self.image = image
 
-	def play_text(self,window,bg,overlay,x,y):
+	def play_text(self,window,bg,overlay,x,y,playerName):
 		text_font = pygame.font.SysFont("arial", 25)
 		message = text_font.render(self.t, True, WHITE)
-
+		self.t = self.t.replace("PLAYERNAME",playerName)
 		if message.get_width() > WIDTH-410:
 			#split the message into sections
 			index = int(len(self.t)*(WIDTH-410)/(message.get_width()))

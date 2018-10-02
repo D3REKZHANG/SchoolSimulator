@@ -6,6 +6,7 @@ pygame.init()
 WIDTH, HEIGHT = 1080,720
 TITLE = "Dating Sim"
 FPS = 60
+PLAYER_NAME = "DEFAULT"
 
 TEXT_SCROLL_SPEED = 0.005 # in seconds
 FADE_SPEED = 0.0001
@@ -15,6 +16,7 @@ path = "../resources/images/"
 exbg = pygame.image.load("{}example_bg.jpg".format(path))
 exbg2 = pygame.image.load("{}example_bg2.jpg".format(path))
 exbg3 = pygame.image.load("{}example_bg3.jpg".format(path))
+OPENING_BG = pygame.image.load("{}opening.jpg".format(path))
 
 BACKGROUNDS = [exbg,exbg2,exbg3]
 
@@ -49,3 +51,7 @@ def check_break():
 			if event.key == pygame.K_SPACE:
 				return True
 	return False
+
+def set_player_name(name):
+	global PLAYER_NAME
+	PLAYER_NAME = name
