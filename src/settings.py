@@ -1,6 +1,7 @@
 import pygame,sys
 
 pygame.init()
+pygame.mixer.init()
 
 # General Settings
 WIDTH, HEIGHT = 1080,720
@@ -11,19 +12,43 @@ PLAYER_NAME = "DEFAULT"
 TEXT_SCROLL_SPEED = 0.005 # in seconds
 FADE_SPEED = 0.0001
 
+# Credits
+CREDITS = [
+	"C R E D I T S",
+	"",
+	"Lead Programmer - Derek Zhang",
+	"Code Assistant - Yi Deng",
+	"Script - Stephen Hwang & Khushwant Virdi",
+	"Original Art - Juleen Chen",
+	"Music - Stephen Hwang",
+	"Project Director - Stephen Hwang"
+]
+
 # Image Loading
-path = "../resources/images/"
-exbg = pygame.image.load("{}example_bg.jpg".format(path))
-exbg2 = pygame.image.load("{}example_bg2.jpg".format(path))
-exbg3 = pygame.image.load("{}example_bg3.jpg".format(path))
-OPENING_BG = pygame.image.load("{}opening.jpg".format(path))
+def load(img):
+	return pygame.image.load("../resources/images/"+img)
 
-BACKGROUNDS = [exbg,exbg2,exbg3]
+OPENING_BG = load("opening.png")
+LOBBY_BG = load("backgrounds/lobby.png")
+CLASSROOM_BG = load("backgrounds/classroom.png")
+LOCKERS_BG = load("backgrounds/lockers.png")
+PYTHON_BG = load("python.png")
+SPLASH = load("splash.png")
 
-exchar = pygame.image.load("{}talking.png".format(path))
+EXPRESSIONS = [
+	load("expressions/smile1.png"),load("expressions/smile2.png"),
+	load("expressions/thinking.png"),load("expressions/sad.png"),
+	load("expressions/weirded.png"),load("expressions/fbi.png"),
+	load("expressions/embarressed.png")
+]
+BACKGROUNDS = [CLASSROOM_BG,LOCKERS_BG,LOBBY_BG,load("Backgrounds/51ending.png")]
 
 # Font Definitions
 comicsans50 = pygame.font.SysFont("comicsansms", 50)
+
+
+# Music
+MUSIC = ["../resources/music/intro.mp3","../resources/music/bg_music.mp3"]
 
 # Colour Definitions
 BLACK = (0,0,0)
@@ -47,11 +72,11 @@ def check_break():
 		if event.type == pygame.QUIT:
 			pygame.quit()
 			sys.exit()
-		if event.type == pygame.KEYDOWN:
-			if event.key == pygame.K_SPACE:
-				return True
+		if event.type == pygame.KEYDOWN or event.type == pygame.MOUSEBUTTONUP:
+			return True
 	return False
 
 def set_player_name(name):
 	global PLAYER_NAME
 	PLAYER_NAME = name
+
