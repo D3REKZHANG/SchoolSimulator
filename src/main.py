@@ -18,12 +18,13 @@ class Game:
         self.current_scene = None
         self.next_scene = None
 
-        self.game_state = "loading"
+        self.game_state = "splash"
 
         self.text_anim = True
         
         # Bad Ending
         self.bad_ending = False
+        self.fifty_ending = False
 
         # Fader Animation
         self.fader = pygame.Surface((WIDTH,HEIGHT));self.fader.fill(BLACK)
@@ -189,6 +190,8 @@ class Game:
                             self.fade_alpha = 0
                             self.fade()
                             if self.current_scene.current_dialogue.responses[0].target_id == 100:
+                                self.fifty_ending = True
+                            elif self.current_scene.current_dialogue.responses[0].target_id == 200:
                                 self.bad_ending = True
                         else:
                             if self.current_scene.current_dialogue.responses[0].text == "SKIP":
@@ -235,8 +238,11 @@ class Game:
                         else:
                             self.fading = False
                             self.game_state = "endscreen"
-                            if not self.bad_ending:
-                                pygame.mixer.music.load(MUSIC[1])
+                            if self.fifty_ending:
+                                pygame.mixer.music.load(MUSIC[2])
+                                pygame.mixer.music.play()
+                            else:
+                                pygame.mixer.music.load(MUSIC[0])
                                 pygame.mixer.music.set_volume(0.2)
                                 pygame.mixer.music.play(-1)
                             break
@@ -341,20 +347,25 @@ class Game:
                     if event.type == pygame.KEYDOWN or event.type == pygame.MOUSEBUTTONUP:
                         self.fade()
 
-                if self.bad_ending:
+                if self.fifty_ending:
                     self.window.blit(BACKGROUNDS[-1],(0,0))
                 else:
                     self.window.fill(BLACK)
-                    self.text("F I N", "Arial", 30, WHITE, 0,0,align="fullcenter")
+                    if(self.bad_ending):
+                        self.text("E N D ?", "Arial", 30, WHITE, 0,0,align="fullcenter")
+                    else:
+                        self.text("F I N", "Arial", 30, WHITE, 0,0,align="fullcenter")
 
                 if self.fading:
                     if self.fade_alpha + 15 < 255:
                         self.fade_alpha += 15
                     else:
                         self.game_state = "credits"
-                        if self.bad_ending:
+                        if self.fifty_ending:
                             pygame.mixer.music.load(MUSIC[0])
                             pygame.mixer.music.play(-1)
+                        self.fading = False
+                        self.fade_alpha = 0
                         break
                     self.fader.set_alpha(self.fade_alpha)
                     self.window.blit(self.fader,(0,0))
@@ -378,6 +389,7 @@ class Game:
                     else:
                         self.game_state = "splash"
                         self.load_game()
+                        self.fading_out = False
                         break
                 pygame.display.update()
 

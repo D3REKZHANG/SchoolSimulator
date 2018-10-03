@@ -48,7 +48,11 @@ comicsans50 = pygame.font.SysFont("comicsansms", 50)
 
 
 # Music
-MUSIC = ["../resources/music/intro.mp3","../resources/music/bg_music.mp3"]
+MUSIC = [
+"../resources/music/intro.mp3",
+"../resources/music/bg_music.mp3",
+"../resources/music/51_ending.mp3"
+]
 
 # Colour Definitions
 BLACK = (0,0,0)
