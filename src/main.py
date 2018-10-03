@@ -389,6 +389,7 @@ class Game:
                     else:
                         self.game_state = "splash"
                         self.load_game()
+                        self.temp_name = ""
                         self.fading_out = False
                         break
                 pygame.display.update()
