@@ -1,4 +1,4 @@
-# ClubDatingSim
+# SchoolSimulator
 Simple Dating Sim put together with Python and Pygame
 
 <h2>Game Details</h2>
