@@ -1,0 +1,90 @@
+2
+(1)
+Ami: Oh, hey PLAYERNAME! 2
+Oh hey, Ami! What's up? (2)
+Sorry, Ami, I'm in a rush to get to English class... (3)
+Um...who are you? (4)
+
+(2)
+Ami: Oh, I was just looking at a few club posters. 1
+That's interesting. Find anything you might like? (5)
+Nice. Uh, sorry, HE, I gotta get going... (3)
+...Doki Doki Literature Club...? (6)
+
+(3)
+Ami: Wait, PLAYERNAME! There's this one club that looks really interesting! 3
+Really? What is it? (5)
+I really don't have time...tell me about it later please. (7)
+EMPTY (-99)
+
+(4)
+Ami: Do you really not remember me? 5
+Just kidding, of course I do! What are you up to? (2)
+Um, no. (8)
+EMPTY (-99)
+
+(5)
+Ami: It's called the Business of Video Games, and it looks really cool! 2
+That does sound interesting. What do they do? (9)
+Hm... (10)
+Do you play video games? (11)
+
+(6)
+Ami: Oh that? Sounds ominous... 3
+Yeah for sure. Which club were you thinking about?? (5)
+I kind of want to join it. (15)
+EMPTY (-99)
+
+(7)
+Ami: Oh, ok. See you later at lunch then. 1
+EMPTY (-99)
+EMPTY (-99)
+[next scene] (6)s
+
+(8)
+Ami: But didn't you say you'd go to Club Crawl with me? 4
+Oh yeah, I did! Sorry, Ami, I have a really bad memory. (12)
+Look, I really don't remember, so leave me be! (13)
+EMPTY (-99)
+
+(9)
+Ami: It says here that they make video games to sell, and the profits go to charity! 2
+Wow that sounds great! (14)
+That's awesome! (14)
+Amazing! (14)
+
+(10)
+Ami: Huh, what's up? 5
+Oh, nothing. It sounds good! (14)
+What's so good about video games? (11)
+EMPTY (-99)
+
+(11)
+Ami: I love video games! They're a lot of fun, and there's also amazing storylines, music, and art that comes along with it! 2
+That's true. Yeah, that club sounds pretty nice! (14)
+Oh, ok. Well, I think I'd better get going, so see you later! (7)
+EMPTY (-99)
+
+(12)
+Ami: Heh, ok. Well, we'd better get going, so I guess I'll see you at Club Crawl! 2
+EMPTY (-99)
+EMPTY (-99)
+[next scene] (6)s
+
+(13)
+Ami: Oh...sorry for making you angry... 4
+EMPTY (-99)
+EMPTY (-99)
+[next scene] (7)s
+
+(14)
+Ami: I know, right? Well, we'd better get going, so see you later! 2
+EMPTY (-99)
+EMPTY (-99)
+[next scene] (6)s
+
+(15)
+Ami: I really think that's not a good idea...well I guess we gotta get going. See you. 3
+EMPTY (-99)
+EMPTY (-99)
+[next scene] (6)s

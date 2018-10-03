@@ -1,0 +1,66 @@
+2
+(1)
+Ami: Oh, it's you... 5
+Uh, heh heh, yeah, I guess...sorry for creeping you out earlier... (2)
+The wind seems...troubled today... (3)
+GLARB GLARB GLARB! (4)
+
+(2)
+Ami: Oh, um...that's ok I guess. It was just a bit unsettling cause it's my first day here. 1
+Yeah, sorry about that. What are you looking at? (5)
+Hey, I guess I'm just naturally like that. (6)
+But I was right, you are an alien, right? (7)
+
+(3)
+Ami: Um...ok...I got to go now, so uh, bye. 5
+EMPTY (-99)
+EMPTY (-99)
+[next scene] (7)s
+
+(4)
+Ami: Um, what? 5
+Sorry, just something in my throat. What's up? (5)
+Aren't you an alien? You should be able to understand this. (7)
+ARGGGG BLEHHHHH... (8)
+
+(5)
+Ami: Oh, I was looking at a few club posters. 1
+Find anything interesting? (9)
+Oh, this one looks good! (10)
+EMPTY (-99)
+
+(6)
+Ami: Naturally like that? 5
+Yep, that's right. (3)
+THHHBTTTTT...! (4)
+EMPTY (-99)
+
+(7)
+Ami: No, I'm really not. Sorry, I have to go, so uh, bye. 5
+EMPTY (-99)
+EMPTY (-99)
+[next scene] (7)s
+
+(8)
+Ami: ... 5
+SKRRRRREEEERRRRRR... (3)
+I'm an elephant. (3)
+EMPTY (-99)
+
+(9)
+Ami: Yeah, this one's called the Business of Video Games, and it looks really cool! 2
+Really? I might check it out! (11)
+That sounds awesome! (11)
+Death is like the wind. Always by my side. (3)
+
+(10)
+Ami: ...the Club for the Promotion and Rights of Extraterrestial Beings...? 5
+I'm just joking. Is this one about video games? (9)
+Yeah, I'm definitely going to join this one. (3)
+Aren't you an alien? You should join. (7)
+
+(11)
+Ami: Ok! I guess I'll see you around then! 2
+EMPTY (-99)
+EMPTY (-99)
+[next scene] (6)s

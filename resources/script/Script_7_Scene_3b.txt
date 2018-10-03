@@ -1,0 +1,36 @@
+3
+(1)
+Ami: Oh, hi. 4
+Hi, I guess. (2)
+Oh, it's you again. (3)
+GLUK GLUK GLUK... (4)
+
+(2)
+Ami: There are a lot of clubs, huh? 1
+Yeah I guess. (5)
+Not that I care. (5)
+EMPTY (-99)
+
+(3)
+Ami: Yep, it's me. Why are you here? 4
+I was thinking of joining a club. (5)
+Just looking around. (6)
+EMPTY (-99)
+
+(4)
+Ami: Ah, ok. Are you here to join a club? 4
+Yeah, the Host Club. (6)
+The Literature Club. (6)
+ZWRALLLLLLGGG!!! (6)
+
+(5)
+Ami: What club are you going to join? 4
+The Host Club. (6)
+The Literature Club. (6)
+I'm not going to join a club. (6)
+
+(6)
+Ami: Alright. Well, I guess I'll see you around. 4
+END (-99)
+END (-99)
+END (-99)

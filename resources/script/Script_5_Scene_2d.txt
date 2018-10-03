@@ -1,0 +1,90 @@
+2
+(1)
+Ami: Oh, it's you... 4
+Oh, hi. Um, sorry for lashing out at you earlier... (2)
+Oh, it's you... (3)
+*ignore her and walk away* (4)
+
+(2)
+Ami: Oh...it's ok. It was a bit surprising, but I hope we can be friends. 1
+Yeah, for sure! (5)
+Uh, no. (6)
+Who do you think you are? (7)
+
+(3)
+Ami: What do you want? 4
+Nothing. I'm just passing by. (8)
+Don't talk to me! (7)
+What do you want? (9)
+
+(4)
+Ami: *sighs* 4
+EMPTY (-99)
+EMPTY (-99)
+[next scene] (7)s
+
+(5)
+Ami: Great! 2
+So, what were you looking at? (10)
+Just kidding, I would never be friends with you. (7)
+EMPTY (-99)
+
+(6)
+Ami: Oh...alright. Bye then. 4
+EMPTY (-99)
+EMPTY (-99)
+[next scene] (7)s
+
+(7)
+Ami: Why do you have to be so temperamental? I'm sorry, I have to go. 4
+EMPTY (-99)
+EMPTY (-99)
+[next scene] (7)s
+
+(8)
+Ami: Ok then. See you around. 4
+EMPTY (-99)
+EMPTY (-99)
+[next scene] (7)s
+
+(9)
+Ami: Are you really copying me? 5
+Oh, no sorry, I just happened to be saying the same things. (11)
+Are you really copying me? (12)
+And do you have a problem with that? (7)
+
+(10)
+Ami: I was looking at a few promotional posters for clubs around the school. 1
+Are there any good ones? (13)
+Yeah, I'm not interested in those. People who join clubs are lame. (14)
+RAAWWWWWRRRRRRR!!! (8)
+
+(11)
+Ami: Is that so? 5
+Yeah. Hey, I'm sorry for being a jerk today... (2)
+What, you don't believe me?!? (7)
+Is that so? (12)
+
+(12)
+Ami: Alright then...I'm gonna go. 5
+EMPTY (-99)
+EMPTY (-99)
+[next scene] (7)s
+
+(13)
+Ami: Yeah, this one's called the Business of Video Games. It sounds really cool! 2
+Yeah, you're right! Maybe I'll join it. (15)
+I dunno about clubs. I think they're kinda dumb, if you know what I mean. (14)
+EMPTY (-99)
+
+(14)
+Ami: I guess everyone has their own opinion. I have to go to class now, so bye. 4
+EMPTY (-99)
+EMPTY (-99)
+[next scene] (7)s
+
+(15)
+Ami: Yeah, that's a good idea! Well, we'd better get off to class now, but see ya! 2
+EMPTY (-99)
+EMPTY (-99)
+[next scene] (6)s

@@ -1,0 +1,84 @@
+2
+(1)
+Ami: Hi, PLAYERNAME! 1
+Hi, Ami. What are you looking at? (2)
+Sorry, I have to get going. See you later. (3)
+Oh, it's you. (4)
+
+(2)
+Ami: Oh, I'm looking at a few club posters, but you're not really interested in that, are you? 3
+Actually, I was thinking about joining a club. (5)
+Yeah, I'm not. (6)
+EMPTY (-99)
+
+(3)
+Ami: Oh, ok. Well, I'll see you later. 4
+EMPTY (-99)
+EMPTY (-99)
+[next scene] (6)s
+
+(4)
+Ami: What do you mean? 5
+Sorry, it was a natural response. What's up? (2)
+Honestly, you're annoying. (7)
+You're the alien, right? (8)
+
+(5)
+Ami: Really? This club looks really cool. It's called the Business of Video Games! 2
+You're right, it does sound interesting. (9)
+How about this club? (10)
+Actually, I don't think I'll join a club. I gotta go, so see you around. (3)
+
+(6)
+Ami: Yeah. Will you at least go to Club Crawl to look around? 1
+Um...yeah I guess I will. (11)
+Look, I already told you no, I'm not going. Stop pestering me about it. (7)
+EMPTY (-99)
+
+(7)
+Ami: Oh...ok. Bye, then. 4
+EMPTY (-99)
+EMPTY (-99)
+[next scene] (7)s
+
+(8)
+Ami: Um, no. I gotta go, so uh, bye. 5
+EMPTY (-99)
+EMPTY (-99)
+[next scene] (7)s
+
+(9)
+Ami: Right? Hey, PLAYERNAME, do you want to go to Club Crawl with me? 7
+Yeah, sure! (12)
+Thanks for the offer, but no. (3)
+Look, I already told you no, I'm not going. Goodbye. (7)
+
+(10)
+Ami: ...the Host Club? I don't think I can join that... 7
+Aw, ok. Yeah, the Business of Video Games does sound pretty good. (9)
+Of course you can! (13)
+I didn't ask you. (7)
+
+(11)
+Ami: Really? In that case, do you want to go with me? You don't have to join anything... 7
+Oh, ok I guess. (12)
+No, sorry. (3)
+EMPTY (-99)
+
+(12)
+Ami: Alright! I guess I'll see you then! 2
+EMPTY (-99)
+EMPTY (-99)
+[next scene] (6)s
+
+(13)
+Ami: No, I really don't think I can. 5
+Yeah, I guess. Yeah, the Business of Video Games sounds nice. (9)
+No, you WILL. (14)
+EMPTY (-99)
+
+(14)
+Ami: Um, I don't think I will. I gotta go, so uh, bye. 5
+EMPTY (-99)
+EMPTY (-99)
+[next scene] (7)s

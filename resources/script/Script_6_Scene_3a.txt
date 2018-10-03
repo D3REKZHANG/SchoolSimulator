@@ -1,0 +1,48 @@
+3
+(1)
+Ami: Oh, hey PLAYERNAME! Look at all these clubs! 2
+I know right? There are so many! (2)
+Where's the Business of Video Games? (3)
+There doesn't look like there are that many... (4)
+
+(2)
+Ami: Yeah! There are so many to choose from, but I think I know which one I'm going to go to. 2
+Yeah, I think I know which club I'm going to join too. (5)
+Oh really, which one? (6)
+EMPTY (-99)
+
+(3)
+Ami: Oh, I think it's over here. 1
+Oh, you're right. (5)
+I think I know what club I'm going to join now. (5)
+EMPTY (-99)
+
+(4)
+Ami: I think there's over 60 clubs this year... 5
+I know, I know. (5)
+Hey, which club are you gonna join? (6)
+EMPTY (-99)
+
+(5)
+Ami: Hey, PLAYERNAME. What club are you going to join? 7
+The Business of Video Games! (7)
+The Business of Video Games! (7)
+The Business of Video Games! (7)
+
+(6)
+Ami: I guess you'll see. 1
+Oh, ok. (8)
+Aw, I wish you'd tell me. (8)
+EMPTY (-99)
+
+(7)
+Ami: So am I! I'm looking forward to being with you this year! 2
+END (-99)
+END (-99)
+END (-99)
+
+(8)
+Ami: ... 7
+SKIP (5)
+SKIP (5)
+SKIP (5)
