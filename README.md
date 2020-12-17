@@ -22,7 +22,6 @@ Written completely in Python using Pygame, a game development module. Code is ve
 Programmed by Derek Zhang with assistance of Yi Deng<br>
 All art is original and drawn digitally by Juleen Chen<br>
 Script written by Stephen Hwang and Khushwant Virdi<br>
-Project Directed by Stephen Hwang
 
 <h2>License</h2>
 
