@@ -1,5 +1,5 @@
 # SchoolSimulator
-Visual-Novel-esque school simulator put together with Python and Pygame
+Visual-Novel-esque school simulator put together in 2 weeks with Python and Pygame
 
 <h2>Game Details</h2>
 
