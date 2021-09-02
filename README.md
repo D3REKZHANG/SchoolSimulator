@@ -23,6 +23,13 @@ Programmed by Derek Zhang with assistance of Yi Deng<br>
 All art is original and drawn digitally by Juleen Chen<br>
 Script written by Stephen Hwang and Khushwant Virdi<br>
 
+## Screenshots
+![image](https://user-images.githubusercontent.com/20462187/131769994-7d3668b9-60e9-4ddb-9d3e-9b34370b6eee.png)
+
+![image](https://user-images.githubusercontent.com/20462187/131770161-481cb0f6-29ac-4446-83d0-335a7d58f612.png)
+
+![image](https://user-images.githubusercontent.com/20462187/131770202-a9556635-0240-436b-a5d2-a9dd000bb203.png)
+
 <h2>License</h2>
 
 Copyright © 2018 Derek Zhang, Stephen Hwang, Yi Deng, Juleen Chen, Khushwant Virdi
@@ -30,4 +37,6 @@ Copyright © 2018 Derek Zhang, Stephen Hwang, Yi Deng, Juleen Chen, Khushwant Vi
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+
 
