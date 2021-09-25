@@ -16,16 +16,9 @@ There are 3 Chapters, with 7 different scripts to play through.
 
 Written completely in Python using Pygame, a game development module. Code is very short (less than 500 lines), clean and readable. Source code is seperated into three different files for more readability and a more organized design. The game presents slick transition animations, coded without the use of an animation module. 
 
-<<<<<<< HEAD
 Automatically parses story script files so that story changes can be made on the fly (no hardcoding).
 
 This code can easily be reused with different story dialogues and character sprites.
-
-=======
-Programmed by Derek Zhang with assistance of Yi Deng<br>
-All art is original and drawn digitally by Juleen Chen<br>
-Script written by Stephen Hwang and Khushwant Virdi<br>
->>>>>>> parent of 73fde39 (add screenshots)
 
 <h2>License</h2>
 
