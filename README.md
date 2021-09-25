@@ -1,9 +1,9 @@
 # SchoolSimulator
-Visual-Novel-esque school simulator put together with Python and Pygame
+Visual-Novel-esque school simulator put together in 2 weeks with Python and Pygame
 
 <h2>Game Details</h2>
 
-Created for Club Crawl 2018/19 <br>
+Created for Club Crawl 2018/19
 Business of Video Games
 
 Time spent: 10 hours (coding)
@@ -13,12 +13,18 @@ Play through an emmersive story about high school life.
 There are 3 Chapters, with 7 different scripts to play through.
 
 <h2>Implementation Details</h2>
-
-Written completely in Python using Pygame, a game development module. Code is very short (less than 500 lines), clean and readable. Source code is seperated into three different files for more readability and a more organized design. The game presents slick transition animations, coded without the use of an animation module. 
+Written completely in Python using Pygame, a game development module. Code is very short (less than 500 lines), clean and readable. Source code is seperated into three different files for more readability and a more organized design. The game presents slick transition animations, coded without the use of an animation module.
 
 Automatically parses story script files so that story changes can be made on the fly (no hardcoding).
 
 This code can easily be reused with different story dialogues and character sprites.
+
+## Screenshots
+![image](https://user-images.githubusercontent.com/20462187/131769994-7d3668b9-60e9-4ddb-9d3e-9b34370b6eee.png)
+
+![image](https://user-images.githubusercontent.com/20462187/131770161-481cb0f6-29ac-4446-83d0-335a7d58f612.png)
+
+![image](https://user-images.githubusercontent.com/20462187/131770202-a9556635-0240-436b-a5d2-a9dd000bb203.png)
 
 <h2>License</h2>
 
@@ -27,4 +33,6 @@ Copyright © 2018 Derek Zhang, Stephen Hwang, Yi Deng, Juleen Chen, Khushwant Vi
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+
 
