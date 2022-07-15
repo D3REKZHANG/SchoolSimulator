@@ -19,13 +19,6 @@ Automatically parses story script files so that story changes can be made on the
 
 This code can easily be reused with different story dialogues and character sprites.
 
-## Screenshots
-![image](https://user-images.githubusercontent.com/20462187/131769994-7d3668b9-60e9-4ddb-9d3e-9b34370b6eee.png)
-
-![image](https://user-images.githubusercontent.com/20462187/131770161-481cb0f6-29ac-4446-83d0-335a7d58f612.png)
-
-![image](https://user-images.githubusercontent.com/20462187/131770202-a9556635-0240-436b-a5d2-a9dd000bb203.png)
-
 <h2>License</h2>
 
 Copyright © 2018 Derek Zhang, Stephen Hwang, Yi Deng, Juleen Chen, Khushwant Virdi
